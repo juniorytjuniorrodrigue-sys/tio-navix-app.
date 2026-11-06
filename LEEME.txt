@@ -1,0 +1,21 @@
+TÍO NAVIX — PAQUETE LISTO PARA PUBLICAR
+
+CONTENIDO
+- index.html: la aplicación
+- manifest.json: configuración para instalarla
+- sw.js: modo sin conexión y caché
+- icons/: iconos de la aplicación
+
+IMPORTANTE
+Para instalarla desde Chrome, primero debes publicar TODO el contenido de esta carpeta
+en un hosting que use HTTPS. No basta con abrir el archivo HTML directamente desde el
+teléfono.
+
+PASOS EN ANDROID
+1. Publica la carpeta completa en un hosting HTTPS (por ejemplo, GitHub Pages o Netlify).
+2. Abre la dirección pública de tu app en Google Chrome.
+3. Abre el menú ⋮ de Chrome.
+4. Pulsa "Instalar aplicación" o "Añadir a pantalla de inicio".
+5. Confirma. Tío Navix aparecerá como una app en tu celular.
+
+La insignia azul que genera la aplicación es decorativa y no representa una verificación oficial.
