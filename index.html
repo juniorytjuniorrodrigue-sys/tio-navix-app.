@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07110b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tío Navix">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Tío Navix</title>\n<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2316e900'/%3E%3Cstop offset='100%25' stop-color='%23168cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial Black,Arial,sans-serif' font-size='42' font-weight='900' text-anchor='middle' fill='%2307100b'%3ETN%3C/text%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:#07100b;color:#f5f7f5;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;min-height:100vh;min-height:100dvh;overscroll-behavior:none}
+.screen{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;padding-top:max(24px,env(safe-area-inset-top));padding-bottom:max(24px,env(safe-area-inset-bottom))}
+.hidden{display:none!important}
+.intro{text-align:center;width:min(100%,430px)}
+.logo{width:112px;height:112px;margin:0 auto 24px;border-radius:30px;background:linear-gradient(135deg,#16e900,#168cff);display:grid;place-items:center;font-size:35px;font-weight:900;color:#07100b;box-shadow:0 0 45px #12d62c55;user-select:none}
+h1{font-size:32px;margin:0 0 12px;font-weight:800}
+.sub{color:#c5d1c8;font-size:17px;line-height:1.5;margin-bottom:30px}
+button{border:0;border-radius:18px;padding:18px 20px;font-weight:800;font-size:18px;color:white;background:#168cff;width:100%;cursor:pointer;transition:transform .15s,opacity .15s;touch-action:manipulation}
+button:active{transform:scale(.97);opacity:.9}
+.panel{width:min(100%,650px);border:1px solid #25352a;border-radius:34px;padding:28px;background:radial-gradient(ellipse at 8% 38%,#087a9b55,transparent 42%),radial-gradient(ellipse at 90% 82%,#19b44b55,transparent 38%),#0d1510;box-shadow:0 18px 60px #0008}
+.panel h2{font-size:27px;margin:8px 0 16px}
+.desc{font-size:17px;line-height:1.5;color:#d0d9d2;margin:0 0 28px}
+label{display:block;font-size:18px;font-weight:700;margin-bottom:14px}
+input{width:100%;background:#141414;color:white;border:1px solid #3b3b3b;border-radius:20px;padding:19px 20px;font-size:20px;outline:none;margin-bottom:30px;caret-color:#16e900}
+input:focus{border-color:#168cff;box-shadow:0 0 0 3px #168cff44}
+.preview{background:#16e900;border-radius:24px;min-height:190px;display:grid;place-items:center;padding:20px;margin-bottom:22px}
+.badge{position:relative;background:white;color:#050505;border:4px solid #111;border-radius:20px;padding:17px 20px;font-size:clamp(22px,6vw,38px);font-weight:900;max-width:100%;overflow-wrap:anywhere;box-shadow:0 7px 8px #0005;line-height:1.2}
+.badge:after{content:"";position:absolute;bottom:-17px;left:44%;width:25px;height:25px;background:white;border-right:4px solid #111;border-bottom:4px solid #111;transform:rotate(45deg)}
+.check{display:inline-grid;place-items:center;vertical-align:middle;background:#168cff;color:white;border:2px solid #07518c;border-radius:50%;width:36px;height:36px;font-size:24px;margin-left:4px}
+.note{color:#cbd4ce;font-size:15px;line-height:1.5;margin:18px 0 0}
+.back{background:#25352b;margin-top:12px}
+.install-btn{background:linear-gradient(135deg,#16e900,#0fb82a);color:#07100b;margin-top:14px;display:none}
+.install-btn.show{display:block}
+@media(max-width:420px){.panel{padding:22px;border-radius:28px}.panel h2{font-size:24px}.preview{min-height:170px}}
+</style>
+</head>
+<body>
+<section id="home" class="screen">
+ <div class="intro">
+  <div class="logo">TN</div>
+  <h1>Tío Navix</h1>
+  <p class="sub">Generador de fotos con insignia azul decorativa.<br>Instálala como app en tu móvil desde Chrome.</p>
+  <button id="enter">GENERAR FOTOS VERIFICADO</button>
+  <button id="installBtn" class="install-btn">📲 INSTALAR APP</button>
+ </div>
+</section>
+<section id="generator" class="screen hidden">
+ <main class="panel">
+  <h2>Generador de nombre verificado</h2>
+  <p class="desc">Escribe tu nombre y descarga la imagen con el mismo estilo de la muestra.</p>
+  <label for="name">Tu nombre</label>
+  <input id="name" maxlength="24" value="The navix" placeholder="Escribe tu nombre" autocomplete="off" enterkeyhint="done">
+  <div class="preview"><div class="badge"><span id="previewName">THE NAVIX</span> <span class="check">✓</span></div></div>
+  <button id="download">DESCARGAR IMAGEN PNG</button>
+  <p class="note">La insignia es decorativa: no representa una verificación oficial.</p>
+  <button class="back" id="back">VOLVER AL INICIO</button>
+ </main>
+</section>
+
+<script>
+/* ===== PWA: archivos estáticos para instalación desde Chrome ===== */
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => {
+      console.warn('No se pudo registrar el modo sin conexión:', err);
+    });
+  });
+}
+
+/* ===== Lógica de la app ===== */
+const home = document.getElementById('home');
+const gen = document.getElementById('generator');
+const nameInput = document.getElementById('name');
+const previewName = document.getElementById('previewName');
+const installBtn = document.getElementById('installBtn');
+let deferredPrompt = null;
+
+document.getElementById('enter').onclick = () => {
+  home.classList.add('hidden');
+  gen.classList.remove('hidden');
+  nameInput.focus();
+};
+
+document.getElementById('back').onclick = () => {
+  gen.classList.add('hidden');
+  home.classList.remove('hidden');
+};
+
+nameInput.addEventListener('input', () => {
+  previewName.textContent = (nameInput.value.trim() || 'TU NOMBRE').toUpperCase();
+});
+
+// Instalar PWA
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.classList.add('show');
+});
+
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if (outcome === 'accepted') installBtn.classList.remove('show');
+  deferredPrompt = null;
+});
+
+window.addEventListener('appinstalled', () => {
+  installBtn.classList.remove('show');
+  deferredPrompt = null;
+});
+
+// Descargar PNG
+document.getElementById('download').onclick = () => {
+  const name = (nameInput.value.trim() || 'TU NOMBRE').toUpperCase();
+  const safe = name.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fontSize = Math.min(76, 650 / Math.max(name.length, 7));
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+    <rect width="1000" height="420" rx="38" fill="#16e900"/>
+    <rect x="110" y="105" width="780" height="205" rx="35" fill="#fff" stroke="#111" stroke-width="10"/>
+    <path d="M450 308 L500 365 L550 308" fill="#fff" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+    <text x="475" y="235" font-family="Arial,sans-serif" font-size="${fontSize}" font-weight="900" text-anchor="middle" fill="#050505">${safe}</text>
+    <circle cx="810" cy="205" r="43" fill="#168cff" stroke="#07518c" stroke-width="8"/>
+    <path d="M788 205 l15 16 30 -34" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+
+  const blob = new Blob([svg], {type: 'image/svg+xml;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1000;
+    canvas.height = 420;
+    canvas.getContext('2d').drawImage(img, 0, 0);
+    URL.revokeObjectURL(url);
+    canvas.toBlob(png => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(png);
+      a.download = 'foto-verificada-tio-navix.png';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }, 'image/png');
+  };
+  img.src = url;
+};
+</script>
+</body>
+</html>
